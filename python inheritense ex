@@ -1,0 +1,172 @@
+#inheritanse
+class ParentClass:
+    
+    def prent_nethod(self):
+        print("This parent method")
+
+class ChildClass(ParentClass):
+    
+    def child_method(self):
+        print("This is child method")
+
+#3.MRO (Method Resolution Order)
+
+class Vehicle:
+  def drive(self):
+    print("Vroom!")
+
+class Car(Vehicle):
+  def drive(self):
+    print("Vroom! I'm a car!")
+
+class Truck(Vehicle):
+  def drive(self):
+    print("Rumble! I'm a truck!")
+
+class ElectricCar(Car):  # ElectricCar inherits from Car
+  def drive(self):
+    print("Whirr! I'm an electric car!")
+
+vehicles = [Vehicle(), Car(), Truck(), ElectricCar()]
+for vehicle in vehicles:
+  vehicle.drive()
+
+
+#3. Types of Inheritance
+#single type
+# Base class
+class Parent:
+    def func1(self):
+        print("This function is in parent class.")
+ 
+# Derived class
+ 
+ 
+class Child(Parent):
+    def func2(self):
+        print("This function is in child class.")
+ 
+ 
+# Driver's code
+object = Child()
+object.func1()
+object.func2()
+
+# mutiple inhertanse 
+class Shape:
+  def area(self):
+    pass
+
+class Rectangle(Shape):
+  def __init__(self, width, height):
+    self.width = width
+    self.height = height
+
+  def area(self):
+    return self.width * self.height
+
+class Circle(Shape):
+  def __init__(self, radius):
+    self.radius = radius
+
+  def area(self):
+    import math
+    return math.pi * (self.radius ** 2)
+
+shapes = [Rectangle(2, 3), Circle(4)]
+for shape in shapes:
+  print(f"Area of {type(shape).__name__}: {shape.area()}")
+
+
+#mutilevel inheritanse
+# Base class
+class University:
+    def __init__(self, university_name):
+        self.university_name = university_name
+
+# Intermediate class
+class Department(University):
+    def __init__(self, department_name, university_name):
+        self.department_name = department_name
+        University.__init__(self, university_name)
+
+# Derived class
+class Student(Department):
+    def __init__(self, student_name, department_name, university_name):
+        self.student_name = student_name
+        Department.__init__(self, department_name, university_name)
+
+    def print_details(self):
+        print('University name :', self.university_name)
+        print("Department name :", self.department_name)
+        print("Student name :", self.student_name)
+
+
+# Driver code
+s1 = Student('John Doe', 'Computer Science', 'Harvard University')
+print(s1.university_name)
+s1.print_details()
+
+
+#Hierarchical Innheritance :
+
+# Base class
+class Parent:
+	def func1(self):
+		print("This function is in parent class.")
+
+# Derived class1
+class Child1(Parent):
+	def func2(self):
+		print("This function is in child 1.")
+
+# Derivied class2
+class Child2(Parent):
+	def func3(self):
+		print("This function is in child 2.")
+
+
+# Driver's code
+object1 = Child1()
+object2 = Child2()
+object1.func1()
+object1.func2()
+object2.func1()
+object2.func3()
+
+
+
+#hybrid inheritanse
+class Animal:
+    def sound(self):
+        print("The animal makes a sound.")
+
+
+class Dog(Animal):
+    def sound(self):
+        print("The dog barks.")
+
+
+class Cat(Animal):
+    def sound(self):
+        print("The cat meows.")
+
+
+class Bird(Animal):
+    def sound(self):
+        print("The bird chirps.")
+
+
+class Parrot(Bird):
+    def sound(self):
+        print("The parrot squawks.")
+
+
+# Driver's code
+dog = Dog()
+cat = Cat()
+parrot = Parrot()
+
+dog.sound()
+cat.sound()
+parrot.sound()
