@@ -1,0 +1,179 @@
+#Syntax of try and except blocks
+try:
+    a = 10
+    b = 0
+    print(a/b)
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+
+
+#Handling multiple exceptions
+try:
+    age = "twenty"
+    int_age = int(age)  # This will raise a ValueError
+    print(int_age)
+
+except ValueError:
+    print("Error: Invalid value! Please enter a numeric age.")
+
+except TypeError:
+    print("Error: Invalid type! Please enter a string or numeric value.")
+
+#Using else and finally blocks
+try:
+    num = int(input("Enter a number: "))
+    result = 10 / num
+    print("The result is:", result)
+except ValueError:
+    print("Error: Invalid input. Please enter a numeric value.")
+except ZeroDivisionError:
+    print("Error: Cannot divide by zero!")
+else:
+    print("Operation completed successfully.")
+finally:
+    print("Program terminated.")
+
+#Common Built-in Exceptions
+#Syntax Error
+try:
+    
+    if x == 5:
+        print("x is equal to 5")
+        
+except SyntaxError:
+    print("SyntaxError occurred")
+
+#IndentationError
+try:
+    
+    def my_function():
+        print("Inside function")
+        print("This line is incorrectly indented")  
+except IndentationError:
+    print("IndentationError occurred")
+
+#Custom Exceptions (Brief Introduction)
+
+class InvalidEmailError(Exception):
+    """Raised when the input email is invalid"""
+    pass
+
+def validate_email(email):
+    if "@" not in email:
+        raise InvalidEmailError("Email must contain an '@' symbol")
+    elif ".com" not in email:
+        raise InvalidEmailError("Email must contain a '.com' domain")
+    else:
+        print("Valid email")
+
+try:
+    validate_email("invalidemail")
+except InvalidEmailError as e:
+    print("Invalid email provided:", e)
+
+#Using except with specific exception
+
+try:
+    x = 10 / 0  
+except ZeroDivisionError:
+    print("Can't divide by zero!")
+
+#Using as to get exception details
+
+try:
+    # Code that might raise an exception
+    result = 10 / 0
+except ZeroDivisionError as e:
+    
+    print("Error:", e)  
+    print("Type:", type(e))  
+    print("Details:", e.args)  
+
+
+#Raising Exceptions in Python:
+
+def divide_numbers(x, y):
+    if y == 0:
+        raise ValueError("Cannot divide by zero")
+    return x / y
+
+try:
+    result = divide_numbers(10, 0)
+except ValueError as e:
+    print("Error:", e)
+
+
+#Code: Custom Exception
+class CustomError(Exception):
+    pass
+
+def check_value(x):
+    if x < 0:
+        raise CustomError("Value cannot be negative")
+
+try:
+    check_value(-5)
+except CustomError as e:
+    print("Custom error occurred:", e)
+
+#Handling Exceptions at Different Levels:
+#local level
+def divide(x, y):
+    try:
+        result = x / y
+        print("Result:", result)
+    except ZeroDivisionError:
+        print("Cannot divide by zero")
+
+
+divide(10, 0)
+
+#Intermediate Level:
+
+def process_data(data):
+    try:
+        result = 10 / data
+    except ZeroDivisionError:
+        raise ValueError("Invalid data") from None
+
+try:
+    process_data(0)
+except ValueError as e:
+    print("Error:", e)
+
+
+#Global Level:
+def main():
+    try:
+        result = 10 / 0
+    except ZeroDivisionError :
+        print("An error occurred: Cannot divide by zero")
+
+if __name__ == "__main__":
+    main()
+
+
+#Using finally for cleanup operations
+def connect_to_database(host, username, password):
+    try:
+        # Simulate a database connection
+        print("Connecting to database...")
+        if host == "localhost" and username == "admin" and password == "password":
+            print("Connected to database successfully")
+            connection = True
+        else:
+            raise ConnectionError("Invalid credentials")
+    except ConnectionError as e:
+        print("Error:", e)
+        connection = False
+    finally:
+        print("Database connection attempt complete")
+    
+    return connection
+
+connected1 = connect_to_database("localhost", "admin", "password")
+print("Connected 1:", connected1)
+
+connected2 = connect_to_database("localhost", "wrong_user", "wrong_password")
+print("Connected 2:", connected2)
+
