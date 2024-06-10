@@ -1,0 +1,143 @@
+# Sample list to work with
+from curses import version
+
+
+numbers = [1, 2, 3, 4, 5]
+
+# Extend
+more_numbers = [6, 7, 8, 9, 10]
+numbers.extend(more_numbers)
+print(f"Extend: {numbers}")
+
+# Index
+index_of_5 = numbers.index(5)
+print(f"Index of 5: {index_of_5}")
+
+# Insert
+numbers.insert(3, 4.5)
+print(f"Insert: {numbers}")
+
+# Remove
+numbers.remove(4)
+print(f"Remove: {numbers}")
+
+# Pop
+popped_number = numbers.pop(3)
+print(f"Pop: {popped_number}, Remaining: {numbers}")
+
+# Count
+count_of_5 = numbers.count(5)
+print(f"Count of 5: {count_of_5}")
+
+# Sort
+numbers.sort()
+print(f"Sort: {numbers}")
+
+# Reverse
+numbers.reverse()
+print(f"Reverse: {numbers}")
+
+# Clear
+numbers.clear()
+print(f"Clear: {numbers}")
+
+
+
+
+# Create a list of colors
+colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
+
+# Insert a new color at the beginning of the list
+colors.insert(0, "pink")
+print("Insert at the Beginning:", colors)
+
+# Insert a new color at the end of the list
+colors.append("black")
+print("Insert at the End:", colors)
+
+# Insert a new color at a specific position
+colors.insert(3, "turquoise")
+print("Insert at a Specific Position:", colors)
+
+
+#tuple
+x = ("Monday", "Tuesday", "Wednesday")
+print(x)
+
+# Tuple Length:
+colors = ("red", "green", "blue", "yellow", "orange", "purple")
+print(len(colors))
+
+tuple2 = (17, "hello", 3.14, False, "female")
+print(tuple2)
+
+
+# 5.
+q = tuple(("apple", "banana", "cherry")) # note the double round-brackets
+print(q)
+
+# 6.
+#Print the second item in the tuple:
+w = ("apple", "banana", "cherry")
+print(w[1])
+
+# 7.
+#Return the third, fourth, and fifth item:
+e = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+print(e[2:5])
+
+# 8.
+#This example returns the items from the beginning to, but NOT included, "kiwi":
+t= ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+print(t[:4])
+
+# 9.
+#This example returns the items from index -4 (included) to index -1 (excluded)
+le = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+print(le[-4:-1])
+
+# Additional example
+#This example returns the items from index -3 (included) to the end of the tuple
+fruits = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+print(fruits[-3:])
+
+
+#Dictionary
+
+#createDictionary
+
+# Using the dict() constructor with keyword arguments
+student = dict(name='Alice', age=25, major='Computer Science')
+
+print(student)  
+
+#Accessing and Modifying Values
+# Adding a new key-value pair
+
+version['country'] = 'USA'
+
+print(version)  
+
+#Use Cases
+# Representing a car object
+car = {
+    'ake': 'Toyota',
+    'odel': 'Camry',
+    'features': {
+        'transmission': 'Automatic',
+        'engine': '2.5L',
+        'eats': 5
+    }
+}
+
+# Accessing nested data
+print(car['make'])  # Output: Toyota
+print(car['features']['engine'])  # Output: 2.5L
+
+
+
+
+
+
+
+
