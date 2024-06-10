@@ -1,7 +1,4 @@
 # Sample list to work with
-from curses import version
-
-
 numbers = [1, 2, 3, 4, 5]
 
 # Extend
@@ -42,8 +39,6 @@ numbers.clear()
 print(f"Clear: {numbers}")
 
 
-
-
 # Create a list of colors
 colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
 
@@ -60,7 +55,7 @@ colors.insert(3, "turquoise")
 print("Insert at a Specific Position:", colors)
 
 
-#tuple
+# Tuple
 x = ("Monday", "Tuesday", "Wednesday")
 print(x)
 
@@ -73,71 +68,60 @@ print(tuple2)
 
 
 # 5.
-q = tuple(("apple", "banana", "cherry")) # note the double round-brackets
+q = tuple(("apple", "banana", "cherry"))  # note the double round-brackets
 print(q)
 
 # 6.
-#Print the second item in the tuple:
+# Print the second item in the tuple:
 w = ("apple", "banana", "cherry")
 print(w[1])
 
 # 7.
-#Return the third, fourth, and fifth item:
+# Return the third, fourth, and fifth item:
 e = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
 print(e[2:5])
 
 # 8.
-#This example returns the items from the beginning to, but NOT included, "kiwi":
-t= ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+# This example returns the items from the beginning to, but NOT included, "kiwi":
+t = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
 print(t[:4])
 
 # 9.
-#This example returns the items from index -4 (included) to index -1 (excluded)
+# This example returns the items from index -4 (included) to index -1 (excluded)
 le = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
 print(le[-4:-1])
 
 # Additional example
-#This example returns the items from index -3 (included) to the end of the tuple
+# This example returns the items from index -3 (included) to the end of the tuple
 fruits = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
 print(fruits[-3:])
 
 
-#Dictionary
+# Dictionary
 
-#createDictionary
-
-# Using the dict() constructor with keyword arguments
+# Create a dictionary
 student = dict(name='Alice', age=25, major='Computer Science')
 
-print(student)  
+print(student)
 
-#Accessing and Modifying Values
+# Accessing and Modifying Values
 # Adding a new key-value pair
+student['country'] = 'USA'
 
-version['country'] = 'USA'
+print(student)
 
-print(version)  
-
-#Use Cases
+# Use Cases
 # Representing a car object
 car = {
-    'ake': 'Toyota',
-    'odel': 'Camry',
+    'make': 'Toyota',
+    'model': 'Camry',
     'features': {
         'transmission': 'Automatic',
         'engine': '2.5L',
-        'eats': 5
+        'seats': 5
     }
 }
 
 # Accessing nested data
 print(car['make'])  # Output: Toyota
 print(car['features']['engine'])  # Output: 2.5L
-
-
-
-
-
-
-
-
