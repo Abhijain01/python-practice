@@ -1,0 +1,264 @@
+import tkinter as tk
+
+# Initialize the main window
+window = tk.Tk()
+
+# Set the title of the window
+window.title("Simple Calculator")
+
+# Set the size of the window
+window.geometry('350x200')
+
+# Create an entry field for the user to input a number
+num_entry = tk.Entry(window, width=20)
+num_entry.grid(column=0, row=0)
+
+# Create a label to display the result
+result_label = tk.Label(window, text="Result:")
+result_label.grid(column=0, row=1)
+
+# Define the function that will be called when the button is clicked
+def calculate():
+    try:
+        num = float(num_entry.get())
+        result = num * 2
+        result_label.config(text=f"Result: {result}")
+    except ValueError:
+        result_label.config(text="Error: Invalid input")
+
+# Create and place the button using the grid method
+button = tk.Button(window, text="Double", command=calculate)
+button.grid(column=1, row=0)
+
+# Start the Tkinter event loop
+window.mainloop()
+
+
+
+#entrybox 
+
+import tkinter as tk
+
+# Initialize the main window
+window = tk.Tk()
+
+# Set the title of the window
+window.title("Age Calculator")
+
+# Set the size of the window
+window.geometry('350x200')
+
+# Create a label for the age
+age_label = tk.Label(window, text="Enter your age:", font=("arial bold", 15))
+age_label.grid(column=0, row=0)
+
+# Create an Entry box for the age
+age_entry = tk.Entry(window, width=10)
+age_entry.grid(column=1, row=0)
+
+# Create a label to display the result
+result_label = tk.Label(window, text="", font=("arial bold", 15))
+result_label.grid(column=1, row=1)
+
+# Define the function that will be called when the button is clicked
+def calculate():
+    age = int(age_entry.get())
+    if age < 18:
+        result_label.config(text="You are a minor!")
+    else:
+        result_label.config(text="You are an adult!")
+
+# Create a button to calculate
+button = tk.Button(window, text="Calculate", command=calculate, bg="blue", fg="white")
+button.grid(column=2, row=0)
+
+# Start the Tkinter event loop
+window.mainloop()
+
+
+#combobox
+
+
+
+import tkinter as tk
+from tkinter.ttk import Combobox
+
+# Initialize the main window
+window = tk.Tk()
+
+# Set the title of the window
+window.title("Favorite Color")
+
+# Set the size of the window
+window.geometry('350x200')
+
+# Create a label for the combobox
+color_label = tk.Label(window, text="Select your favorite color:", font=("arial bold", 15))
+color_label.grid(column=0, row=0)
+
+# Create and place the combobox using the grid method
+color_combo = Combobox(window)
+color_combo['values'] = ("Red", "Green", "Blue", "Yellow", "Purple")
+color_combo.current(0)  # Set the default selected item
+color_combo.grid(column=1, row=0)
+
+# Create a label to display the selected color
+result_label = tk.Label(window, text="", font=("arial bold", 15))
+result_label.grid(column=1, row=1)
+
+# Define the function that will be called when the selection changes
+def selected_color(event):
+    selected = color_combo.get()
+    result_label.config(text=f"You selected: {selected}")
+
+# Bind the function to the combobox
+color_combo.bind("<<ComboboxSelected>>", selected_color)
+
+# Start the Tkinter event loop
+window.mainloop()
+
+
+
+# Check button
+
+import tkinter as tk
+
+# Create the main window
+window = tk.Tk()
+window.title("Checkbutton Example")
+
+# Set the size of the window
+window.geometry('350x200')
+
+# Create a BooleanVar and set it to True
+check_state = tk.BooleanVar()
+check_state.set(True)
+
+# Create a Checkbutton widget
+check = tk.Checkbutton(window, text="Select", variable=check_state)
+check.grid(column=0, row=0)
+
+# Start the Tkinter event loop
+window.mainloop()
+
+
+
+# Radio Button Example
+
+import tkinter as tk
+
+# Create the main window
+window = tk.Tk()
+window.title("Radio Button Example")
+
+# Set the size of the window
+window.geometry('350x200')
+
+# Create a StringVar to hold the value of the selected radio button
+selection = tk.StringVar()
+
+# Create radio buttons and bind them to the selection variable
+radio1 = tk.Radiobutton(window, text="BMW", variable=selection, value="BMW")
+radio2 = tk.Radiobutton(window, text="Mercedes Benz", variable=selection, value="Mercedes Benz")
+radio3 = tk.Radiobutton(window, text="Audi", variable=selection, value="Audi")
+
+# Grid placement for the radio buttons
+radio1.grid(column=0, row=0)
+radio2.grid(column=1, row=0)
+radio3.grid(column=2, row=0)
+
+# Run the application
+window.mainloop()
+
+
+
+
+
+# Scrolled Text
+
+import tkinter as tk
+from tkinter import scrolledtext
+
+# Create the main window
+window = tk.Tk()
+window.title("ScrolledText Example")
+
+# Create a ScrolledText widget
+text = scrolledtext.ScrolledText(window, width=40, height=10)
+text.pack(padx=10, pady=10)
+
+# Insert some text into the ScrolledText widget
+text.insert(tk.INSERT, "Hello Python")
+
+# Run the Tkinter event loop
+window.mainloop()
+
+
+
+#messagebox
+
+import tkinter as tk
+from tkinter import messagebox
+
+# Create the main window
+window = tk.Tk()
+window.title("Message Box Widget example")
+
+# Set the size of the window
+window.geometry('350x200')
+
+# Function to be called when the button is clicked
+def clicked():
+    name = entry.get()
+    if name:
+        messagebox.showinfo("Greeting", f"Hello, {name}!")
+    else:
+        messagebox.showerror("Error", "Please enter your name!")
+
+# Create a label and entry for the user's name
+label = tk.Label(window, text="Enter your name:")
+label.pack()
+
+entry = tk.Entry(window)
+entry.pack()
+
+# Create the button and assign the function to be called on click
+button = tk.Button(window, text="Greet", command=clicked)
+button.pack(pady=20)  # Adds some padding to position the button
+
+# Start the Tkinter event loop
+window.mainloop()
+
+
+
+#spinbox
+
+import tkinter as tk
+from tkinter import messagebox
+
+# Create the main window
+window = tk.Tk()
+window.title("Spinbox widget example")
+
+# Create a label for the Spinbox
+label = tk.Label(window, text="Select your age:")
+label.pack()
+
+# Create the Spinbox widget
+spin = tk.Spinbox(window, from_=18, to=100, width=5)
+spin.pack(pady=10)  # Adds some padding to position the Spinbox
+
+# Function to be called when the button is clicked
+def submit():
+    age = int(spin.get())
+    if age < 18:
+        messagebox.showerror("Error", "You must be at least 18 years old to continue.")
+    else:
+        messagebox.showinfo("Success", "You are eligible to continue.")
+
+# Create the button and assign the function to be called on click
+button = tk.Button(window, text="Submit", command=submit)
+button.pack(pady=10)  # Adds some padding to position the button
+
+# Start the Tkinter event loop
+window.mainloop()

@@ -1,0 +1,36 @@
+import tkinter as tk
+
+# Initialize the main window
+window = tk.Tk()
+
+# Set the title of the window
+window.title("Simple Calculator")
+
+# Set the size of the window
+window.geometry('350x200')
+
+# Create an entry field for the user to input a number
+num_entry = tk.Entry(window, width=20)
+num_entry.grid(column=0, row=0)
+
+# Create a label to display the result
+result_label = tk.Label(window, text="Result:")
+result_label.grid(column=0, row=1)
+
+# Define the function that will be called when the button is clicked
+def calculate():
+    try:
+        num = float(num_entry.get())
+        result = num * 2
+        result_label.config(text=f"Result: {result}")
+    except ValueError:
+        result_label.config(text="Error: Invalid input")
+
+# Create and place the button using the grid method
+button = tk.Button(window, text="Double", command=calculate)
+button.grid(column=1, row=0)
+
+# Start the Tkinter event loop
+window.mainloop()
+
+
